@@ -1,20 +1,20 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { IncrementCounter, DecrementCounter, IncrementByValueCounter } from '../redux/actions/CounterActions';
+import { increment, decrement, incrementByValue } from '../redux/CounterSlice';
 
 function Counter() {
   const {count} = useSelector(state => state.counter);
   const dispatch = useDispatch();
   const handleIncrement = () => {
-    IncrementCounter(dispatch);
+    dispatch(increment());
   }
 
   const handleDecrement = () => {
-    DecrementCounter(dispatch);
+    dispatch(decrement());
   }
 
   const handleIncrementByValue = () => {
-    IncrementByValueCounter(dispatch);
+    dispatch(incrementByValue());
   }
   return (
    <div>
