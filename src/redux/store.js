@@ -1,9 +1,11 @@
-import {createStore, applyMiddleware} from 'redux';
-import reduxThunk from 'redux-thunk';
-import reducres from './reducers'
+import { configureStore } from '@reduxjs/toolkit';
+import CounterSlice from './CounterSlice';
 
-const enhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-const store = createStore(reducres, enhancer(applyMiddleware(reduxThunk)));
+const store = configureStore({
+    reducer: {
+        counter: CounterSlice
+    }
+});
 
 
 export default store;
